@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1616809164 source:/home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/main.cpp
+	<iostream>
+	<stdio.h>
+	<unistd.h>
+	<string>
+	<cstdlib>
+	<vector>
+	<algorithm>
+	<planta.h>
+	<fstream>
+
+1616809154 source:/home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/src/planta.cpp
+	"planta.h"
+	<iostream>
+	<string.h>
+	<stdio.h>
+	<unistd.h>
+	<string>
+	<sys/wait.h>
+	<filesystem>
+	<dirent.h>
+	<fstream>
+
+1616605418 /home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/include/planta.h
+	<string>
+
