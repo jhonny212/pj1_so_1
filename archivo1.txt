@@ -1,0 +1,6 @@
+        |         |-gnome-shell-+-codeblocks-+-xterm---cb_console_runn---sh---proyectoSO-+-proyectoSO-+-proyectoSO
+        |         |             |            |                                           |            |-proyectoSO
+        |         |             |            |                                           |            `-proyectoSO
+        |         |             |            |                                           |-proyectoSO-+-proyectoSO
+        |         |             |            |                                           |            |-proyectoSO
+        |         |             |            |                                           |            `-proyectoSO

@@ -19,8 +19,6 @@ FILE * archivo;
 
 int main()
 {
-
-
     create();
     for (int i=0;i<results.size();i++){
         vector<string>tmp=results[i];
@@ -40,23 +38,23 @@ int main()
                 //Show planta
                 plantas[cod_].construirArbol();
 
+
             }else if(tmp[0]=="I"){
                 //Print planta
+                string codName="archivo"+to_string(cod_)+".txt";
+                plantas[cod_].imprimir(codName);
             }
             break;
         case 4:
             int cantidadRamas=stoi(tmp[2]);
             int cantidadHojas=stoi(tmp[3]);
             plantas[cod_].setRamas(cantidadRamas,cantidadHojas);
-
             break;
 
         }
     }
 
-    while(true){
-        sleep(2);
-    }
+
 
     return 0;
 }
@@ -81,9 +79,6 @@ void abrir(){
     texto = (char*) malloc (sizeof(char)*medida);
     fread(texto, medida+1, 1, archivo);
     fclose(archivo);
-
-
-
 }
 vector<string> split(string str, char pattern,bool enter) {
 
@@ -102,10 +97,7 @@ vector<string> split(string str, char pattern,bool enter) {
             splitted.erase (std::remove(splitted.begin(), splitted.end(), chars[i]), splitted.end());
             }
         }
-
-
         resultados.push_back(splitted);
-
     }
 
     return resultados;
