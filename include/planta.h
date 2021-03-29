@@ -16,7 +16,6 @@ class planta
         void setRamas(int ram,int hoj);
         void construirArbol();
         void imprimir(string namecod);
-
         bool isFile(string ruta);
 
 

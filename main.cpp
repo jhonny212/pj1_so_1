@@ -7,26 +7,40 @@
 #include <algorithm>
 #include <planta.h>
 #include <fstream>
+#include <exception>
 using namespace std;
 vector<string> split(string str, char pattern, bool enter);
 vector<vector<string>> results;
 vector<planta> plantas;
 void abrir();
 void create();
+void fichero_();
 FILE * archivo;
-  long medida;
-  char * texto;
+long medida;
+
+
+char * texto;
 
 int main()
 {
+    cout<<"Presione 1 si quiere leer un archivo de entrada"<<endl;
+    int opc;
+    cin>>opc;
+    if(opc==1){
+    abrir();
     create();
-    for (int i=0;i<results.size();i++){
-        vector<string>tmp=results[i];
-
-        int cod_ = stoi(tmp[1]);
+    fichero_();
+    }else{
+        while(true){
+            char instruccion[300];
+            cout<<"Escriba una instruccion"<<endl;
+            cin>>instruccion;
+            texto=instruccion;
+            create();
+            vector<string>tmp=results[results.size()-1];
+            int cod_ = stoi(tmp[1]);
         switch(tmp.size()){
         case 2:
-
             if(tmp[0]=="P"){
                 //Creation of planta
                 for(int j=0;j<cod_;j++){
@@ -37,8 +51,6 @@ int main()
             }else if(tmp[0]=="M"){
                 //Show planta
                 plantas[cod_].construirArbol();
-
-
             }else if(tmp[0]=="I"){
                 //Print planta
                 string codName="archivo"+to_string(cod_)+".txt";
@@ -48,19 +60,68 @@ int main()
         case 4:
             int cantidadRamas=stoi(tmp[2]);
             int cantidadHojas=stoi(tmp[3]);
+
             plantas[cod_].setRamas(cantidadRamas,cantidadHojas);
             break;
+        }
 
         }
     }
 
-
-
     return 0;
 }
 
+
+void fichero_(){
+    for (int i=0;i<results.size();i++){
+        vector<string>tmp=results[i];
+        int cod_ = stoi(tmp[1]);
+        switch(tmp.size()){
+        case 2:
+            if(tmp[0]=="P"){
+                //Creation of planta
+                for(int j=0;j<cod_;j++){
+                    planta pl=planta();
+                    plantas.push_back(pl);
+                    string path="mkdir -p archivosFork/"+to_string(j+1);
+                    system(path.c_str());
+
+                }
+            }else if(tmp[0]=="M"){
+                //Show planta
+                plantas[cod_].construirArbol();
+            }else if(tmp[0]=="I"){
+                //Print planta
+                string codName="archivo"+to_string(cod_)+".txt";
+                plantas[cod_].imprimir(codName);
+            }
+            break;
+        case 4:
+            int cantidadRamas=stoi(tmp[2]);
+            int cantidadHojas=stoi(tmp[3]);
+            ofstream fileLog;
+            fileLog.open("logPlanta.txt",ios::out);
+            fileLog<<to_string(cod_);
+            fileLog.close();
+            /*fseek (fileLog , 0 , SEEK_END);
+            medida2 = ftell (fileLog);
+            rewind (fileLog);
+
+            char *log_ = (char*) malloc (sizeof(char)*medida2);
+            fread(log_, medida2+1, 1,fileLog);
+            fclose(fileLog);*/
+
+            plantas[cod_].setRamas(cantidadRamas,cantidadHojas);
+            break;
+        }
+
+    }
+
+}
+
+
 void create(){
-    abrir();
+
     vector<string> res=split(texto,')',true);
     res.pop_back();
     for(int i=0; i<res.size(); i++){
@@ -69,9 +130,7 @@ void create(){
 }
 
 void abrir(){
-    //char ruta[400];
-    //cout<<"Escriba la ruta del archivo"<<endl;
-    //cin>>ruta;
+
     archivo = fopen ("documento.txt", "r");
     fseek (archivo , 0 , SEEK_END);
     medida = ftell (archivo);

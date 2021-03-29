@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1616964374 source:/home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/main.cpp
+1616992138 source:/home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/main.cpp
 	<iostream>
 	<stdio.h>
 	<unistd.h>
@@ -9,8 +9,9 @@
 	<algorithm>
 	<planta.h>
 	<fstream>
+	<exception>
 
-1616964408 source:/home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/src/planta.cpp
+1616992007 source:/home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/src/planta.cpp
 	"planta.h"
 	<iostream>
 	<string.h>
@@ -21,7 +22,8 @@
 	<filesystem>
 	<dirent.h>
 	<fstream>
+	<exception>
 
-1616963741 /home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/include/planta.h
+1616984349 /home/jhonny/Escritorio/7mo.Semestre/SOLD/proyectoSO/include/planta.h
 	<string>
 
